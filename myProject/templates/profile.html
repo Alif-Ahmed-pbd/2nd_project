@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Profile</h1>
+
+    <div class="container" style="max-width: 700px;">
+        <div class="card mx-auto" style="max-width: 350px;">
+            <img src="{% if profile_user.profile_pic %}{{ profile_user.profile_pic.url }}{% else %}pass{% endif %}" class="card-img-top" alt="Profile Picture">
+            <div class="card-body">
+                <form action="" method="POST" enctype="multipart/form-data" class="mt-4">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <hr>
+                <button><a href="{% url 'deleteprofile' user.id %}" class="btn btn-danger">Delete</a></button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

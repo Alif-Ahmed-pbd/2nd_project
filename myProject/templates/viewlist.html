@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+</head>
+<body>
+    {% include "message.html" %}
+    <h1>User Profile</h1>
+
+   
+    <table>
+    <tr>
+      <th>Item name</th>
+      <th>Calorie Consumed</th>
+      <th>Eat Time</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Actions</th>
+     
+    </tr>
+
+    {% for item in items %}
+    <tr>
+       <td>{{ item.item_name }}</td>
+       <td>{{ item.calorie_consumed }}</td>
+       <td>{{ item.time }}</td>
+       <td>{{ item.date }}</td>
+       <td>{{ item.create_at }}</td>
+       <td>
+        <a href="{% url 'edititem' item.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'deleteitem' item.id %}" class="btn btn-danger">Delete</a>
+       </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+
+{% endblock %}

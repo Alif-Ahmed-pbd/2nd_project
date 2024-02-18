@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <br>
+<div class="card text-white bg-dark mb-3" style="max-width: 30rem;">
+    <div class="card-header" style="text-align: center;">{{info.name}}</div>
+    <br>
+    <form class="card-body" action="" method="post">
+        {% csrf_token %}
+        <label for="date">Input Date</label>
+        <input type="date" name="date">
+        <button type="submit">submit</button>
+    </form>
+    <div class="card-body">
+      <h5 class="card-title">Total Callory = {{info.BMR}}</h5>
+      <h5 class="card-title">Consumed Callory = {{sum}}</h5>
+      <h5 class="card-title">Need to Consumed = {{n_t_c}}</h5>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+

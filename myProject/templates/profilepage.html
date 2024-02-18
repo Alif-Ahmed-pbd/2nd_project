@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if msg %}
+<h1 style="text-align: center;">{{msg}}</h1><br>
+<center>
+<a href="{% url 'updateProfile' %}"><button>Update Profile</button></a>
+</center>
+{% else %}
+<h1 style="text-align: center;">{{info.name}}</h1>
+<div class="container">
+  <div class="card text-center">
+      <div class="card-header">
+        {{info.user.email}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Age = {{info.age}}</h5>
+        <p class="card-text">Height = {{info.height}} cm</p>
+        <p class="card-text">Weight = {{info.weight}} cm</p>
+        <p class="card-text">BMR = {{BMR}} </p>
+        <a href="#" class="btn btn-primary">( Under Construction )</a>
+      </div>
+      <div class="card-footer text-muted">
+        
+      </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
